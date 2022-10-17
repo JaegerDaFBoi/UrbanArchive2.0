@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/registro.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/gallery.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -42,7 +43,7 @@
                             @if (Auth::user()->hasRole('artist'))
                                 <li class="nav-menu-item">
                                     <a class="nav-link nav-menu-link_active active text-white" aria-current="page"
-                                        href="crearpublicacion">Crear Publicacion</a>
+                                        href="{{ route('publicacion.create') }}">Crear Publicacion</a>
                                 </li>
                             @endif
                             <li class="nav-menu-item">
@@ -74,10 +75,11 @@
             </header>
         </div>
 
-        <div class="container vh-100">
-            @yield('content')
+        <div class="content-wrapper">
+            <div class="container-fluid vh-100 mt-5">
+                @yield('content')
+            </div>
         </div>
-
         <footer class="footer pt-3 w-100 bottom-0">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
