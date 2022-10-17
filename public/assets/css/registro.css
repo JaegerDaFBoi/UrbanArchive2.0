@@ -1,0 +1,22 @@
+.center {
+    margin-top: 100px;
+}
+
+.register-text {
+    font-size: x-large;
+    color: white;
+    border-radius: 30px;
+}
+
+.auth-input {
+    border-radius: 30px;
+    border-color: black;
+    width: 100%;
+}
+
+.button-submit {
+    border-radius: 20px;
+    background: linear-gradient(150deg, #fdbb2d, #b21f1f, #1a2a6c);
+    transition: left 1s;
+    color: white;
+}
