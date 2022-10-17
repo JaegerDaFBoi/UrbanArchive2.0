@@ -9,7 +9,7 @@
                         </div>
                         <div class="card-body text-center">
                             <x-jet-validation-errors class="mb-4" />
-                            <form action="" method="POST">
+                            <form action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-12">
@@ -41,7 +41,7 @@
                                     <div class="form-group col-md-12">
                                         <label for="tipousuario" class="register-text">Seleccione tipo de usuario</label>
                                         <select name="tipousuario" class="form-select">
-                                            <option value="" disabled selected>Seleccione una opción</option>
+                                            <option value="3" disabled selected>Seleccione una opción</option>
                                             <option value="2"> Usuario</option>
                                             <option value="3">Artista</option>
                                         </select>
