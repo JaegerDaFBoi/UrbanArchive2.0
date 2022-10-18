@@ -23,7 +23,7 @@
                                 <p class="register-text text-center">Fecha de publicación: {{ $fecha }}</p>
                             </div>
                             <div class="col-6 text-center">
-                                <p class="register-text ">Artista: {{ $artista->name }}</p>
+                                <p class="register-text ">Artista: <a href="{{ route('publicacion.perfilartista', $artista->id) }}">{{ $artista->name }}</a></p>
                             </div>
                         </div>
                     </div>

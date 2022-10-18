@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/registro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/gallery.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/categorias.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/profile.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
@@ -60,6 +61,13 @@
                                     {{ Auth::user()->name }}
                                 </button>
                                 <ul class="dropdown-menu">
+                                    @if (Auth::user()->hasRole('artist'))
+                                    <li>
+                                        <a href="{{ route('publicacion.perfilartista', Auth::user()->id) }}" class="dropdown-item">
+                                            Perfil
+                                        </a>
+                                    </li>  
+                                    @endif
                                     <li>
                                         <a class="dropdown-item" aria-current="page" href="{{ route('logout') }}">
                                             <form action="{{ route('logout') }}" method="POST">

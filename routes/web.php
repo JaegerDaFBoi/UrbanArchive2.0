@@ -32,6 +32,7 @@ Route::middleware([
     Route::group(['middleware' => ['role:artist']], function () {
         Route::get('/publicacion/create', [Controllers\PublicacionController::class, 'create'])->name('publicacion.create');
         Route::post('/publicacion/store', [Controllers\PublicacionController::class, 'store'])->name('publicacion.store');
+        Route::get('/publicacion/{idusuario}/perfilartista', [Controllers\PublicacionController::class, 'show'])->name('publicacion.perfilartista');
     });
 });
 

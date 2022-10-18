@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Imagen;
 use App\Models\Publicacion;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,9 +64,13 @@ class PublicacionController extends Controller
      * @param  \App\Models\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Publicacion $publicacion)
+    public function show($idusuario)
     {
-        //
+        $usuario = User::find($idusuario);
+        $publicacionesArtista = Publicacion::where('id_usuario', $usuario->id)->with('imagenes')->get();
+        $numpublicaciones = count($publicacionesArtista);
+        $publicacion = Publicacion::where('id_usuario', $usuario->id)->with('imagenP')->orderBy('created_at','DESC')->take(6);
+        return view('artista.perfil', compact('usuario', 'publicacion', 'numpublicaciones'));
     }
 
     /**
