@@ -39,7 +39,7 @@ class CreateNewUser implements CreatesNewUsers
             'genero' => $input['genero']
         ]);
 
-        dump($user->assignRole($input['tipousuario']));
+        $user->assignRole($input['tipousuario']);
 
         return $user;
     }

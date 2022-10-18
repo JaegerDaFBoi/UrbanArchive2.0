@@ -1,0 +1,13 @@
+.category-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50px;
+}
+
+.category-title{
+    background-color: rgb(0, 0, 0);
+    width: 400px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 47px;
+}

@@ -26,6 +26,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [Controllers\ImagenController::class, 'index'])->name('dashboard');
     Route::get('/publicacion/{publicacion}/detalle', [Controllers\ImagenController::class, 'show'])->name('publicacion.show');
+    Route::get('/categorias/index', [Controllers\CategoriaController::class, 'index'])->name('categorias.index');
+    Route::get('/categorias/{id_categoria}/mostrar', [Controllers\CategoriaController::class, 'show'])->name('categorias.mostrar');
 
     Route::group(['middleware' => ['role:artist']], function () {
         Route::get('/publicacion/create', [Controllers\PublicacionController::class, 'create'])->name('publicacion.create');

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/registro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/gallery.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/categorias.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
@@ -26,7 +27,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="wrapper">
+    <div class="vh-100">
         <div class="container-fluid">
             <header class="header">
                 <nav class="navbar fixed-top navbar-expand-lg bg-dark">
@@ -51,7 +52,7 @@
                                     href="{{ url('/dashboard') }}">Inicio</a>
                             </li>
                             <li class="nav-menu-item">
-                                <a class="nav-link nav-menu-link" aria-current="page" href="#">Categorias</a>
+                                <a class="nav-link nav-menu-link" aria-current="page" href="{{ route('categorias.index') }}">Categorias</a>
                             </li>
                             <div class="dropdown dropstart mt-2">
                                 <button class="btn btn-warning dropdown-toggle text-white" type="button"
@@ -76,7 +77,7 @@
         </div>
 
         <div class="content-wrapper">
-            <div class="container-fluid mt-5">
+            <div class="container-fluid mt-5 mb-5">
                 @yield('content')
             </div>
         </div>

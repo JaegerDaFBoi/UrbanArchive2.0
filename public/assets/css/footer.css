@@ -2,7 +2,6 @@
 .footer {
     background-color: black;
     text-transform: uppercase;
-    position: absolute;
     font: normal 16px sans-serif;
     height: 100px;
     bottom: 0;
