@@ -24,6 +24,6 @@ class Publicacion extends Model
      }
 
      public function imagenP() {
-        return $this->hasOne('App\Models\Imagen')->latest();
+        return $this->hasOne('App\Models\Imagen', 'id_publicacion')->latest();
     }
 }

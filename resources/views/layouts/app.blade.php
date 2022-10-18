@@ -76,11 +76,11 @@
         </div>
 
         <div class="content-wrapper">
-            <div class="container-fluid vh-100 mt-5">
+            <div class="container-fluid mt-5">
                 @yield('content')
             </div>
         </div>
-        <footer class="footer pt-3 w-100 bottom-0">
+        <footer class="footer pt-3">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-md-6 footer-left">

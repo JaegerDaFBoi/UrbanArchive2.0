@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Imagen;
+use App\Models\Publicacion;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ImagenController extends Controller
@@ -14,7 +17,7 @@ class ImagenController extends Controller
      */
     public function index()
     {
-        $imagenes = Imagen::orderBy('created_at', 'DESC')->with('publicacion')->get();
+        $imagenes = Imagen::orderBy('created_at', 'DESC')->with('publicacion:id,titulo')->get();
         return view('dashboard', compact('imagenes'));
     }
 
@@ -45,9 +48,12 @@ class ImagenController extends Controller
      * @param  \App\Models\Imagen  $imagen
      * @return \Illuminate\Http\Response
      */
-    public function show(Imagen $imagen)
+    public function show(Publicacion $publicacion)
     {
-        //
+        $artista = User::find($publicacion->id_usuario);
+        $format = "d-m-Y";
+        $fecha = Carbon::parse($publicacion->created_at)->format($format);
+        return view('publicacion.show', compact('publicacion', 'artista', 'fecha'));
     }
 
     /**
