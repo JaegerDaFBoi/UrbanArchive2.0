@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tipodoc');
             $table->integer('documento');
             $table->char('genero',1);
+            $table->longText('descripcionperfil')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
