@@ -18,7 +18,6 @@ class PublicacionController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -50,7 +49,7 @@ class PublicacionController extends Controller
         if ($publicacion->save()) {
             $fotos = $request->file('fotos');
             $imagen = new Imagen();
-            $imagen->path = $fotos->storeAs('', uniqid().'.'.$fotos->getClientOriginalExtension(), 'public');
+            $imagen->path = $fotos->storeAs('', uniqid() . '.' . $fotos->getClientOriginalExtension(), 'public');
             $imagen->id_publicacion = $publicacion->id;
             $imagen->save();
         }
@@ -69,8 +68,12 @@ class PublicacionController extends Controller
         $usuario = User::find($idusuario);
         $publicacionesArtista = Publicacion::where('id_usuario', $usuario->id)->with('imagenes')->get();
         $numpublicaciones = count($publicacionesArtista);
-        $publicacion = Publicacion::where('id_usuario', $usuario->id)->with('imagenP')->orderBy('created_at','DESC')->take(6);
-        return view('artista.perfil', compact('usuario', 'publicacion', 'numpublicaciones'));
+        $imagenes = Imagen::whereIn(
+            'id_publicacion',
+            Publicacion::select('id')->where('id_usuario', $usuario->id)->get()->toArray()
+        )->get();
+        // $publicacion = Publicacion::where('id_usuario', $usuario->id)->with('imagenP')->orderBy('created_at','DESC')->take(6);
+        return view('artista.perfil', compact('usuario', 'imagenes', 'numpublicaciones'));
     }
 
     /**

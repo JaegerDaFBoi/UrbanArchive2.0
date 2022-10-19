@@ -29,29 +29,13 @@
                 <li>Publicaciones</li>
               </ul>
               <div class="row gallery">
-                  @foreach ($publicacion as $imagen)
-                      <div class="col-md-4">
+                  @foreach ($imagenes as $imagen)
+                      <div class="col-md-4 grid-item">
                         <img src="{{ asset('storage/' . $imagen->path) }}" alt="{{$imagen->publicacion->titulo}}">
+                        <p class="align-items-center justify-content-center"><span>{{ $imagen->publicacion->titulo }}</span>
+                        </p>
                       </div>
                   @endforeach
-                {{-- <div class="col-md-4">
-                   <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div>
-                <div class="col-md-4">
-                  <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div>
-                <div class="col-md-4">
-                   <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div>
-                <div class="col-md-4">
-                   <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div>
-                <div class="col-md-4">
-                  <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div>
-                <div class="col-md-4">
-                  <img src="https://picsum.photos/id/65/900/900.jpg"/>
-                </div> --}}
               </div>
             </div>
         </main>
